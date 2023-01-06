@@ -2,21 +2,40 @@ const ROCK_PAPER_SCISSORS = ['Rock', 'Paper', 'Scissors', 'Rock', 'Paper', 'Scis
 
 let result = 0
 
-function getComputerChoice() {
-    const randomChoice = Math.floor(Math.random() * ROCK_PAPER_SCISSORS.length)
-    return ROCK_PAPER_SCISSORS[randomChoice]
+function game(n) {
+
+    for (let i = 0; i < n; i++) {
+        const playerSelection = getPlayerSelection()
+
+
+        console.log(`Your choice is ${playerSelection}`);
+        console.log(`The computer selects ${getComputerChoice()}`);
+        console.log(playRound(playerSelection, getComputerChoice()));
+    }
+
+    if (result > 0) {
+        return console.log("\nYou won.");
+    } else if (result < 0) {
+        return console.log("\nYou lost.");
+    }
+    return console.log("\nIt's a draw.");
 }
+
+
+game(3)
+
+
 
 function getPlayerSelection() {
     let playerAnswer
 
     const btns = document.querySelectorAll("button")
 
-    const result = document.querySelector(".result").firstElementChild
+    const resultPlayer = document.querySelector(".result").firstElementChild
 
     btns.forEach((btn) => btn.addEventListener("click", () => {
         playerAnswer = btn.value
-        result.textContent = `You have chosen ${playerAnswer}`
+        resultPlayer.textContent = `You have chosen ${playerAnswer}`
         console.log(playerAnswer);
     }))
 
@@ -25,6 +44,7 @@ function getPlayerSelection() {
 
 
 function playRound(playerSelection, computerSelection) {
+
 
 
     if (playerSelection == computerSelection) {
@@ -65,23 +85,8 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game(n) {
 
-    for (let i = 0; i < n; i++) {
-        const playerSelection = getPlayerSelection()
-        const computerSelection = getComputerChoice()
-        console.log(`Your choice is ${playerSelection}`);
-        console.log(`The computer selects ${computerSelection}`);
-        console.log(playRound(playerSelection, computerSelection));
-    }
-
-    if (result > 0) {
-        return console.log("\nYou won.");
-    } else if (result < 0) {
-        return console.log("\nYou lost.");
-    }
-    return console.log("\nIt's a draw.");
+function getComputerChoice() {
+    const randomChoice = Math.floor(Math.random() * ROCK_PAPER_SCISSORS.length)
+    return ROCK_PAPER_SCISSORS[randomChoice]
 }
-
-
-game(3)
