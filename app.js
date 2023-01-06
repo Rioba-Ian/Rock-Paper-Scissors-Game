@@ -8,21 +8,17 @@ function getComputerChoice() {
 }
 
 function getPlayerSelection() {
-    let answerPlayer = prompt("Select: Rock, Paper or Scissors?")
+    let playerAnswer
 
-    if (answerPlayer == "") {
-        alert("Enter a valid option:")
-        answerPlayer = prompt("Select: Rock, Paper or Scissors?")
-    }
+    const btns = document.querySelectorAll("button")
 
-    const playerAnswer = answerPlayer.substring(0, 1).toUpperCase() + answerPlayer.substring(1).toLowerCase()
+    const result = document.querySelector(".result").firstElementChild
 
-
-    if ((playerAnswer != "Rock") && (playerAnswer != "Scissors") && (playerAnswer != "Paper")) {
-        alert(`Your answer wasn't rock, paper or 
-        scissors. It is not case sensistive.Please try again.`)
-        answerPlayer = prompt("Select: Rock, Paper or Scissors?")
-    }
+    btns.forEach((btn) => btn.addEventListener("click", () => {
+        playerAnswer = btn.value
+        result.textContent = `You have chosen ${playerAnswer}`
+        console.log(playerAnswer);
+    }))
 
     return playerAnswer
 }
@@ -88,4 +84,4 @@ function game(n) {
 }
 
 
-game(5)
+game(3)
