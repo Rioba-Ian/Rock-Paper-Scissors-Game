@@ -2,14 +2,20 @@ const ROCK_PAPER_SCISSORS = ['Rock', 'Paper', 'Scissors', 'Rock', 'Paper', 'Scis
 
 let result = 0
 
+let gameCount = 0
+
 function game() {
 
     const gameResult = document.querySelector(".result").children[2]
 
-    gameResult.textContent = result
 
-    console.log(playRound(getPlayerSelection(), getComputerChoice()));
-
+    if (gameCount == 0) {
+        gameResult.textContent = result
+        return "not started."
+    } else {
+        gameResult.textContent = result
+        console.log(playRound(getPlayerSelection(), getComputerChoice()));
+    }
 }
 
 
@@ -33,6 +39,7 @@ function getPlayerSelection() {
         playerAnswer = btn.value
         resultPlayer.textContent = `You have chosen ${playerAnswer}`
         compResult.textContent = `The computer has chosen ${getComputerChoice()}`
+        gameResult += 1
         console.log(playerAnswer);
     }))
 
