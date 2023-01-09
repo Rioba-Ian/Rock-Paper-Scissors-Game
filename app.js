@@ -1,91 +1,68 @@
 const ROCK_PAPER_SCISSORS = ['Rock', 'Paper', 'Scissors', 'Rock', 'Paper', 'Scissors']
 
-let result = 0
+game()
 
-function getComputerChoice() {
+function game() {
+    // variable to hold the player Answer
+    let playerAnswer
+
+    // get all buttons.
+    const btns = document.querySelectorAll("button")
+    // the computer result from the random number of the ROCK_PAPER_SCISSORS
     const randomChoice = Math.floor(Math.random() * ROCK_PAPER_SCISSORS.length)
-    return ROCK_PAPER_SCISSORS[randomChoice]
-}
+    const compChoice = ROCK_PAPER_SCISSORS[randomChoice]
+    const compResult = document.querySelector(".result").children[1]
 
-function getPlayerSelection() {
-    let answerPlayer = prompt("Select: Rock, Paper or Scissors?")
+    // where we shall store the game result in the ui. 
+    const gameResult = document.createElement("h3")
+    // grab the result 
+    const resultPlayer = document.querySelector(".result").firstElementChild
 
-    if (answerPlayer == "") {
-        alert("Enter a valid option:")
-        answerPlayer = prompt("Select: Rock, Paper or Scissors?")
-    }
+    // click events for button to launch game once it has been clicked.
+    btns.forEach((btn) => btn.addEventListener("click", () => {
+        playerAnswer = btn.value
+        resultPlayer.textContent = `You have chosen ${playerAnswer}`
+        compResult.textContent = `The computer has chosen ${compChoice}`
 
-    const playerAnswer = answerPlayer.substring(0, 1).toUpperCase() + answerPlayer.substring(1).toLowerCase()
-
-
-    if ((playerAnswer != "Rock") && (playerAnswer != "Scissors") && (playerAnswer != "Paper")) {
-        alert(`Your answer wasn't rock, paper or 
-        scissors. It is not case sensistive.Please try again.`)
-        answerPlayer = prompt("Select: Rock, Paper or Scissors?")
-    }
-
-    return playerAnswer
-}
-
-
-function playRound(playerSelection, computerSelection) {
-
-
-    if (playerSelection == computerSelection) {
-        result = result
-        return "This is a draw."
-    }
-
-    else if (playerSelection == "Rock") {
-        if (computerSelection == "Scissors") {
-            result += 1
-            return "You win! Rock beats Scissors."
-
-        }
-        else {
-            result -= 1
-
-            return "You Lose! Paper beats Rock"
-        }
-    }
-
-    else if (playerSelection == "Paper") {
-        if (computerSelection == "Rock") {
-            result += 1
-            return "You win! Paper beats Scissors."
+        // game logic
+        if (playerAnswer == "Rock") {
+            if (compChoice == "Scissors") {
+                gameResult.textContent = "You win, Rock beats Scissors."
+                console.log("You win, Rock beats Scissors.");
+            } else if (compChoice == "Paper") {
+                gameResult.textContent = "You lose, Paper beats Rock"
+                console.log("You lose, Paper beats Rock");
+            } else if (compChoice == "Rock") {
+                gameResult.textContent = "This is a draw."
+                console.log("This is a draw.");
+            }
+        } else if (playerAnswer == "Paper") {
+            if (compChoice == "Scissors") {
+                gameResult.textContent = "You lose, Scissors beats Paper."
+                console.log("You lose, Scissors beats Paper.");
+            } else if (compChoice == "Rock") {
+                gameResult.textContent = "You win, Paper beats Rock"
+                console.log("You win, Paper beats Rock");
+            } else if (compChoice == "Paper") {
+                gameResult.textContent = "This is a draw."
+                console.log("This is a draw.");
+            }
         } else {
-            result -= 1
-            return "You Lose! Paper beats Rock"
+            if (compChoice == "Rock") {
+                gameResult.textContent = "You lose, Rock beats Scissors."
+                console.log("You lose, Rock beats Scissors.");
+            } else if (compChoice == "Paper") {
+                gameResult.textContent = "You win, Scissors beats Paper"
+                console.log("You win, Scissors beats Paper");
+            } else if (compChoice == "Scissors") {
+                gameResult.textContent = "This is a draw."
+                console.log("This is a draw.");
+            }
         }
-    }
-    else {
-        if (computerSelection == "Paper") {
-            result += 1
-            return "You win! Scissors beats Paper."
-        } else {
-            result -= 1
-            return "You lose!Rock beats Scissors."
-        }
-    }
-}
-
-function game(n) {
-
-    for (let i = 0; i < n; i++) {
-        const playerSelection = getPlayerSelection()
-        const computerSelection = getComputerChoice()
-        console.log(`Your choice is ${playerSelection}`);
-        console.log(`The computer selects ${computerSelection}`);
-        console.log(playRound(playerSelection, computerSelection));
-    }
-
-    if (result > 0) {
-        return console.log("\nYou won.");
-    } else if (result < 0) {
-        return console.log("\nYou lost.");
-    }
-    return console.log("\nIt's a draw.");
+        // append the game result after game logic to the ui
+        document.querySelector('.result').appendChild(gameResult)
+        console.log(playerAnswer);
+    }))
 }
 
 
-game(5)
