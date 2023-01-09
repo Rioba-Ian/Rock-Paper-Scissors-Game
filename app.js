@@ -8,9 +8,7 @@ function game() {
 
     // get all buttons.
     const btns = document.querySelectorAll("button")
-    // the computer result from the random number of the ROCK_PAPER_SCISSORS
-    const randomChoice = Math.floor(Math.random() * ROCK_PAPER_SCISSORS.length)
-    const compChoice = ROCK_PAPER_SCISSORS[randomChoice]
+
     const compResult = document.querySelector(".result").children[1]
 
     // where we shall store the game result in the ui. 
@@ -21,6 +19,12 @@ function game() {
     // click events for button to launch game once it has been clicked.
     btns.forEach((btn) => btn.addEventListener("click", () => {
         playerAnswer = btn.value
+
+        // the computer result from the random number of the ROCK_PAPER_SCISSORS
+        const randomChoice = Math.floor(Math.random() * ROCK_PAPER_SCISSORS.length)
+        const compChoice = ROCK_PAPER_SCISSORS[randomChoice]
+
+
         resultPlayer.textContent = `You have chosen ${playerAnswer}`
         compResult.textContent = `The computer has chosen ${compChoice}`
 
