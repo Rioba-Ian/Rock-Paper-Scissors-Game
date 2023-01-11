@@ -94,3 +94,13 @@ button {
     color: orangered;
     font-size: clamp(2rem, 2.25rem, 2.75rem);
 }
+
+@media (max-width: 600px) {
+
+    .game-choice {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
