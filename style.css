@@ -1,0 +1,27 @@
+:root {
+    --dark-blue: #9ac9c0;
+    --gray-black: #683942;
+}
+
+@font-face {
+    font-family: Nordic-Light;
+    src: url(./assets/fonts/NORDIC\ LIGHT.ttf);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    background-color: var(--dark-blue);
+    color: var(--gray-black);
+
+    font-family: Nordic-Light;
+}
