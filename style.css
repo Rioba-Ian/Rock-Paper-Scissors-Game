@@ -15,9 +15,14 @@
     margin: 0;
 }
 
+html {
+    line-height: 1.5;
+}
+
 img {
     max-width: 100%;
 }
+
 
 body {
     height: 100%;
@@ -33,30 +38,59 @@ body {
 
 .container {
     width: min(80%, 1280px);
-    padding: 20vh 0;
+    padding: 15vh 0;
     margin: 0 auto;
 }
 
 header {
     width: 80%;
-    background-color: #fff;
-    padding: 1em 0;
+    color: rgb(230, 230, 230);
+    padding: 0.5em 0;
     margin: 0 auto;
 }
 
+header h1 {
+    letter-spacing: 2px;
+    font-size: clamp(2rem, 2.5rem, 3.5rem);
+}
+
 main {
-    /* background-color: #9ac9c0ca;
-     */
-    background-color: #5b7a7490;
+    background-color: #3a4f4bee;
     border-radius: 1rem;
     width: 90%;
     margin: 0 auto;
-    padding: 6rem 0;
-
+    padding: 3rem 0;
 }
 
 button {
     width: 10rem;
-    background: transparent;
+    background: #9ac9c0;
     border: none;
+    padding: 2em;
+
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.game-choice {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.result {
+    color: rgb(213, 213, 213);
+    text-align: center;
+    line-height: 1.8;
+    margin-top: 1em;
+}
+
+.result h2 {
+    color: #fff;
+    font-size: clamp(2rem, 2.25rem, 2.75rem);
+}
+
+.result h3 {
+    color: orangered;
+    font-size: clamp(2rem, 2.25rem, 2.75rem);
 }
