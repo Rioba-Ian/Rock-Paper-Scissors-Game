@@ -20,8 +20,37 @@ img {
 }
 
 body {
-    background-color: var(--dark-blue);
+    height: 100%;
+    /* background-color: var(--dark-blue); */
+    background-image: url(./assets/images/pexels-cottonbro-studio-4835419.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100%;
     color: var(--gray-black);
 
     font-family: Nordic-Light;
+}
+
+.container {
+    width: min(80%, 1280px);
+    padding: 20vh 0;
+    margin: 0 auto;
+}
+
+header {
+    width: 80%;
+    background-color: #fff;
+    padding: 1em 0;
+    margin: 0 auto;
+}
+
+main {
+    /* background-color: #9ac9c0ca;
+     */
+    background-color: #9ac9c090;
+
+    width: 90%;
+    margin: 0 auto;
+    padding: 6rem 0;
+
 }
