@@ -47,10 +47,16 @@ header {
 main {
     /* background-color: #9ac9c0ca;
      */
-    background-color: #9ac9c090;
-
+    background-color: #5b7a7490;
+    border-radius: 1rem;
     width: 90%;
     margin: 0 auto;
     padding: 6rem 0;
 
+}
+
+button {
+    width: 10rem;
+    background: transparent;
+    border: none;
 }
