@@ -1,0 +1,106 @@
+:root {
+    --dark-blue: #9ac9c0;
+    --gray-black: #683942;
+}
+
+@font-face {
+    font-family: Nordic-Light;
+    src: url(./assets/fonts/NORDIC\ LIGHT.ttf);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+body {
+    height: 100%;
+    /* background-color: var(--dark-blue); */
+    background-image: url(./assets/images/pexels-cottonbro-studio-4835419.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100%;
+    color: var(--gray-black);
+
+    font-family: Nordic-Light;
+}
+
+.container {
+    width: min(80%, 1280px);
+    padding: 15vh 0;
+    margin: 0 auto;
+}
+
+header {
+    width: 80%;
+    color: rgb(230, 230, 230);
+    padding: 0.5em 0;
+    margin: 0 auto;
+}
+
+header h1 {
+    letter-spacing: 2px;
+    font-size: clamp(2rem, 2.5rem, 3.5rem);
+}
+
+main {
+    background-color: #3a4f4bee;
+    border-radius: 1rem;
+    width: 90%;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+button {
+    width: 10rem;
+    background: #9ac9c0;
+    border: none;
+    padding: 2em;
+
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.game-choice {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.result {
+    color: rgb(213, 213, 213);
+    text-align: center;
+    line-height: 1.8;
+    margin-top: 1em;
+}
+
+.result h2 {
+    color: #fff;
+    font-size: clamp(2rem, 2.25rem, 2.75rem);
+}
+
+.result h3 {
+    color: orangered;
+    font-size: clamp(2rem, 2.25rem, 2.75rem);
+}
+
+@media (max-width: 600px) {
+
+    .game-choice {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
